@@ -11,3 +11,4 @@ cd "$BUILD_DIR/freetds-0.91"
 ./configure --prefix="$DEST_DIR"
 make
 make install
+tree
