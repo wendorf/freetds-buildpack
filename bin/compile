@@ -1,3 +1,11 @@
 #!/usr/bin/env bash
 
-echo "I am running our nice shiny buildpack"
+BUILD_DIR=`mktemp -d -t freetds`
+echo "Compiling FreeTDS in $BUILD_DIR"
+DEST_DIR="$0"/vendor/freetds 
+#mkdir -p "$DEST_DIR"
+curl ftp://ftp.freetds.org/pub/freetds/stable/freetds-stable.tgz -o - | tar -xz -C "$BUILD_DIR" -f -
+cd "$BUILD_DIR/freetds-0.91"
+
+./configure
+make
