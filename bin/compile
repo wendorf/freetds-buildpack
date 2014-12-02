@@ -2,11 +2,11 @@
 
 BUILD_DIR=`mktemp -d -t freetds.XXXXXXXXX`
 echo "Compiling FreeTDS in $BUILD_DIR"
-DEST_DIR="$0"/vendor/freetds 
-#mkdir -p "$DEST_DIR"
+#DEST_DIR="$0"/vendor/freetds 
+mkdir -p "$DEST_DIR"
 curl ftp://ftp.freetds.org/pub/freetds/stable/freetds-stable.tgz -o - | tar -xz -C "$BUILD_DIR" -f -
 cd "$BUILD_DIR/freetds-0.91"
 
-./configure
+./configure # --prefix="$DEST_DIR" --exec-prefix="$DEST_DIR/lib"
 make
-make install
+sudo make install
