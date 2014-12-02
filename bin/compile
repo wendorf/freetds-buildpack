@@ -9,3 +9,4 @@ cd "$BUILD_DIR/freetds-0.91"
 
 ./configure
 make
+make install
