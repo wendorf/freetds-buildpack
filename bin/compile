@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BUILD_DIR=`mktemp -d -t freetds`
+BUILD_DIR=`mktemp -d -t freetds.XXXXXXXXX`
 echo "Compiling FreeTDS in $BUILD_DIR"
 DEST_DIR="$0"/vendor/freetds 
 #mkdir -p "$DEST_DIR"
